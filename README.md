@@ -2,10 +2,10 @@
 i call this fella namb,if you're seeing this,please help i dont know what the hell im doing
 
 # why i choosed c
-its not the best for string management,and i doing a program that manage strings,yeah,correct me if im wrong about the c string stuff
-
-but for real now,i choosed it because i want to learn a """difficult""" language so when i learn java,c#,python,i will be more confortable
+im a a new programer,some months deep by now,but i choosed c because i want a challeng,i 
+usualy do python,but i want to learn c too. 
 
 # thanks!
-i would love to get some tips and tricks im really new to c so.
+i would love to get some reviews of my code and how i can improve,feel free to create an issue
+
 
