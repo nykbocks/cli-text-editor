@@ -1,9 +1,1 @@
-#inc‡lude <stdio,.h>
-
-int main(){
-	printf()"hello terminal,and txesxt file"!");
-	return 0;
-}
-
-
-
+

@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <conio.h>
+#define clear() printf("\033[H\033[J")
+#define gotoxy(x,y) printf("\033[%d;%dH", (y), (x))
 
 int main(int argc,char *argv[]){
 	if(argc == 1){
@@ -10,19 +12,38 @@ int main(int argc,char *argv[]){
 	}
 	FILE *filename;
 	filename = fopen(argv[1],"w+");
-	system("clear");	
 	char input[251] = {0};
 	char cur[251] = {0};
-	for(int i=0;i<250;i++){
+	clear();
+	input[0] = getch();
+	for(int i=1;i<250;i++){
+		while(fgets(cur,250,filename)){
+			printf("%s", cur);
+		}
+
 		input[i] = getch();
-		putchar(input[i]);
-		if(input[i] == '\e'){
+		int x = i;
+		int y = 1;
+		switch(input[i]){
+		case('\e'):
+			i = 249;
+		case('\r'):
+			printf("\n");
+			y++;
+			strcat(&input[i+=1],"\n");
+			break;
+		case('\b'):
+			int del = 1;
+			x--;
+			gotoxy(x,y);
+			input[i-=del] = " ";
+			if(input[i-=del] == " "){
+				del++;
+			};
 			break;
 		}
-		if(input[i] == '\r'){
-			printf("\n");
-			strcat(&input[i+=1],"\n");
-		}
+		clear();
+		printf("%s",&input);
 	}
 	fprintf(filename,"%s",input);
 	fclose(filename);
